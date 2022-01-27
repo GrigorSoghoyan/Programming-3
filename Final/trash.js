@@ -1,5 +1,9 @@
-class Trash extends LivingCreature {
+let LivingCreature = require('./LivingCreature')
 
+module.exports = class Trash extends LivingCreature{
+    constructor(x, y, index) {
+        super(x, y, index);
+    }
     mul() {
         this.multiply++;
         var emptyCells = this.chooseCell(0);
