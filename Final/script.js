@@ -7,7 +7,7 @@ function setup() {
     background("#acacac");
 }
 
-function nkarel(matrix) {
+function draw(matrix) {
     console.log(matrix);
     
 for (var y = 0; y < matrix.length; y++) {
