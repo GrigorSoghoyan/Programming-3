@@ -1,22 +1,21 @@
 let LivingCreature = require('./LivingCreature')
 
-module.exports = class Trash extends LivingCreature{
+module.exports = class Trash extends LivingCreature {
     constructor(x, y, index) {
         super(x, y, index);
     }
     mul() {
         this.multiply++;
-        var emptyCells = this.chooseCell(0);
-        var newCell = random(emptyCells);
-        if (newCell && this.multiply >= 15) {
-            var newX = newCell[0];
-            var newY = newCell[1];
-            matrix[newY][newX] = 5;
-
-            var newTrash = new Trash(newX, newY);
-            trashArr.push(newTrash);
-            this.multiply = 0;
+        if (this.multiply >= 3) {
+            let emptyCells = super.chooseCell(0)
+            let newCell = emptyCells[Math.floor(Math.random() * emptyCells.length)]
+            if (this.multiply >= 5 && newCell) {
+                let x = newCell[0]
+                let y = newCell[1]
+                var tr = new Trash(x, y, 5)
+                trashArr.push(tr)
+                this.multiply = 0;
+            }
         }
     }
-
 }

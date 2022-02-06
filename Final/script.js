@@ -3,7 +3,7 @@ var socket = io();
  side = 30
 
 function setup() {
-    createCanvas(7 * side, 13 * side);
+    createCanvas(20 * side, 20 * side);
     background("#acacac");
 }
 
@@ -21,6 +21,18 @@ for (var y = 0; y < matrix.length; y++) {
             fill("yellow");
             rect(x * side, y * side, side, side);
         }
+        else if (obj == 3) {
+            fill("teal");
+            rect(x * side, y * side, side, side);
+        }
+        else if (obj == 4) {
+            fill("purple");
+            rect(x * side, y * side, side, side);
+        }
+        else if (obj == 5) {
+            fill("black");
+            rect(x * side, y * side, side, side);
+        }
     }
 }
 
@@ -28,6 +40,6 @@ for (var y = 0; y < matrix.length; y++) {
 
 setInterval(
     function () {
-    socket.on('send matrix', nkarel)
+    socket.on('send matrix', draw)
     },1000
 )
